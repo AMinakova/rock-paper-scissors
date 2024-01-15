@@ -1,18 +1,20 @@
 {
   "compilerOptions": {
-    "outDir": "build/dist",
-    "module": "commonjs",
     "target": "es5",
-    "lib": ["es6", "dom"],
-    "sourceMap": true,
+    "lib": ["dom", "dom.iterable"],
     "allowJs": true,
-    "jsx": "react",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "rootDir": "src",
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
   },
   "exclude": [
     "node_modules",
@@ -23,5 +25,6 @@
     "jest",
     "src/setupTests.ts"
   ],
+  "include": ["frontend/src"],
   "types": ["typePatches"]
 }

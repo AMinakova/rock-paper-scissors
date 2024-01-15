@@ -1,4 +1,9 @@
 import * as React from "react";
+import { ScoreSummary } from "./components/ScoreSummary";
 export function App() {
-  return <div className="body">Hello React</div>;
+  return (
+    <>
+      <ScoreSummary></ScoreSummary>
+    </>
+  );
 }

@@ -16,3 +16,4 @@
 
 # Avoid node modules to be pushed
 node_modules/*
+build/*
