@@ -1,10 +1,13 @@
-import * as React from "react";
-import logo from "../images/logo.svg";
+import logo from "../assets/logo.svg";
 
-export function ScoreSummary() {
+export function ScoreSummary(props: { count: number }) {
   return (
     <div className="score-summary">
-      <img src="../images/logo.svg" alt="Logo" />
+      <img src={logo} alt="Logo" />
+      <div className="score-label">
+        <p>SCORE</p>
+        <p>{props.count}</p>
+      </div>
     </div>
   );
 }
