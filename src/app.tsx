@@ -1,15 +1,19 @@
 import { useState } from "react";
 import "./App.css";
-import { ScoreSummary } from "./components/ScoreSummary";
+import { ScoreBoard } from "./components/ScoreBoard";
 import { ChoicesDashboard } from "./components/ChoicesDashboard";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [chosenIcon, setChosenIcon] = useState("");
 
+  console.log(chosenIcon);
   return (
     <>
-      <ScoreSummary count={count}></ScoreSummary>
-      <ChoicesDashboard></ChoicesDashboard>
+      <ScoreBoard count={count}></ScoreBoard>
+      <ChoicesDashboard
+        makeChoice={(value) => setChosenIcon(value)}
+      ></ChoicesDashboard>
     </>
   );
 }

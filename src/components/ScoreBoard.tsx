@@ -1,8 +1,8 @@
 import logo from "../assets/logo.svg";
 
-export function ScoreSummary(props: { count: number }) {
+export function ScoreBoard(props: { count: number }) {
   return (
-    <div className="score-summary">
+    <div className="score-board">
       <img src={logo} alt="Logo" />
       <div className="score-label">
         <p>SCORE</p>

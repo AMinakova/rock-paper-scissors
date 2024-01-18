@@ -8,18 +8,24 @@ const choicesLogos = {
   scissors: scissorsLogo,
   paper: paperLogo,
 };
-export function ChoicesDashboard() {
-  const choiceView = (type: choices) => {
+export function ChoicesDashboard(props: {
+  makeChoice: (value: string) => void;
+}) {
+  const showChoiceButton = (type: choices) => {
     return (
-      <div className="circle">
-        <img src={choicesLogos[type]} alt="type"></img>
-      </div>
+      <button
+        className={`circle-parent ${type}-color`}
+        onClick={(value) => props.makeChoice("bla")}
+      >
+        <div className={`circle-child ${type} background`}></div>
+      </button>
     );
   };
   return (
     <div className="choices">
-      <div>{choiceView("rock")}</div>
-      <div></div>
+      {showChoiceButton("paper")}
+      {showChoiceButton("scissors")}
+      {showChoiceButton("rock")}
     </div>
   );
 }

@@ -1,7 +1,14 @@
 :root {
   --score-width: 6rem;
-  --circle-width: 6rem;
+  --circle-size: 200px;
   --circle-border: 1rem;
+  --circle-color: white;
+  --icon-rock: url(".\assets\icon-rock.svg");
+  --icon-scissors: url(".\assets\icon-scissors.svg");
+  --icon-paper: url(".\assets\icon-paper.svg");
+  --color-rock: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --color-scissors: linear-gradient(hsl(40, 84%, 53%), hsl(40, 84%, 53%));
+  --color-paper: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
 }
 
 body {
@@ -14,36 +21,92 @@ body {
   padding: 0;
 }
 
-body div {
+body:first-child {
   width: 60em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40em;
+}
+
+button:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+  outline: none;
 }
 .choices {
-  background-image: url(".\assets\bg-triangle.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.circle {
-  border-radius: 50%;
-  border: var(--circle-border) solid white;
-  width: var(--circle-width);
-  height: var(--circle-width);
+  padding: 20px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
+  gap: 100px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  background-image: url(".\assets\bg-triangle.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
 }
+.circle-parent {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  position: relative;
+  border-radius: 50%;
+  background: linear-gradient(hsl(40, 84%, 53%), hsl(40, 84%, 53%));
+  box-shadow: 0px -10px rgba(0, 0, 0, 0.4) inset;
+}
+
+.circle-child {
+  border-radius: 50%;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 60% 60%;
+  box-shadow: 0 10px rgba(0, 0, 0, 0.4) inset;
+  position: absolute;
+  padding: 75px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rock {
+  background-image: var(--icon-rock);
+}
+
+.rock-color {
+  background: var(--color-rock);
+}
+.scissors {
+  background-image: var(--icon-scissors);
+}
+
+.scissors-color {
+  background: var(--color-scissors);
+}
+.paper {
+  background-image: var(--icon-paper);
+}
+
+.paper-color {
+  background: var(--color-paper);
+}
+
 .score-label {
-  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
   background-color: white;
   height: var(--score-width);
   width: var(--score-width);
 }
-.score-summary {
+
+.score-board {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border: 2px solid white;
-  border-radius: 2px;
-  max-width: 60em;
-  padding: 10px;
+  border-radius: 20px;
+  padding: 30px;
 }
