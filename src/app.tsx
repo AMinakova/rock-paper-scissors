@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { ScoreBoard } from "./components/ScoreBoard";
-import { ChoicesDashboard } from "./components/ChoicesDashboard";
+import { ChoicesDashboard } from "./components/choices/ChoicesDashboard";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,7 +12,7 @@ function App() {
     <>
       <ScoreBoard count={count}></ScoreBoard>
       <ChoicesDashboard
-        makeChoice={(value) => setChosenIcon(value)}
+        handleChoice={(value) => setChosenIcon(value)}
       ></ChoicesDashboard>
     </>
   );

@@ -1,21 +1,17 @@
-import rockLogo from "../assets/icon-rock.svg";
-import scissorsLogo from "../assets/icon-scissors.svg";
-import paperLogo from "../assets/icon-paper.svg";
+import "./Choices.css";
 
 type choices = "rock" | "scissors" | "paper";
-const choicesLogos = {
-  rock: rockLogo,
-  scissors: scissorsLogo,
-  paper: paperLogo,
-};
+
 export function ChoicesDashboard(props: {
-  makeChoice: (value: string) => void;
+  handleChoice: (value: string) => void;
 }) {
   const showChoiceButton = (type: choices) => {
     return (
       <button
+        key={type}
+        value={type}
         className={`circle-parent ${type}-color`}
-        onClick={(value) => props.makeChoice("bla")}
+        onClick={(e) => props.handleChoice(e.currentTarget.value)}
       >
         <div className={`circle-child ${type} background`}></div>
       </button>
