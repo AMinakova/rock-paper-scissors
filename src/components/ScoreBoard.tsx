@@ -2,7 +2,7 @@ import logo from "../assets/logo.svg";
 
 export function ScoreBoard(props: { count: number }) {
   return (
-    <div className="score-board">
+    <div className="score-container">
       <img src={logo} alt="Logo" />
       <div className="score-label">
         <p>SCORE</p>

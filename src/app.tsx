@@ -9,12 +9,17 @@ function App() {
 
   console.log(chosenIcon);
   return (
-    <>
-      <ScoreBoard count={count}></ScoreBoard>
-      <ChoicesDashboard
-        handleChoice={(value) => setChosenIcon(value)}
-      ></ChoicesDashboard>
-    </>
+    <div className="content">
+      <div className="container">
+        <ScoreBoard count={count}></ScoreBoard>
+        <ChoicesDashboard
+          handleChoice={(value) => setChosenIcon(value)}
+        ></ChoicesDashboard>
+      </div>
+      <button className="transparent">
+        <p>RULES</p>
+      </button>
+    </div>
   );
 }
 
