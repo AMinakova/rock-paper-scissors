@@ -9,30 +9,6 @@
   --color-scissors: linear-gradient(hsl(40, 84%, 53%), hsl(40, 84%, 53%));
   --color-paper: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
 }
-
-button:active {
-  background: #e5e5e5;
-  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-  box-shadow: inset 0px 0px 5px #c1c1c1;
-  outline: none;
-}
-.choices-initial {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  max-width: 100%;
-  background-image: url("..\..\assets\bg-triangle.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.choices-initial div:first-child {
-  display: flex;
-  justify-content: space-between;
-  gap: 60px;
-}
 .circle-parent {
   width: var(--circle-size);
   height: var(--circle-size);

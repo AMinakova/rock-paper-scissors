@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { ScoreBoard } from "./components/ScoreBoard";
-import { ChoicesDashboard } from "./components/choices/ChoicesDashboard";
+import { ChoicesDashboard } from "./components/ChoicesDashboard/ChoicesDashboard";
 
 function App() {
   const [count, setCount] = useState(0);
