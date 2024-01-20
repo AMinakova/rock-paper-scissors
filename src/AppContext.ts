@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, createContext } from "react";
-import { figures } from "./components/InitialBoard/InitialBoard";
+import { FigureTypes } from "./components/choices/ChoicesBoard";
 
-export type Choices = figures | null;
+export type Choices = FigureTypes | null;
 
 export type Context = {
   userChoice: Choices;

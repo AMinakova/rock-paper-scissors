@@ -2,17 +2,16 @@ import { useContext } from "react";
 import { Figure } from "../figure/Figure";
 import "./InitialBoard.css";
 import { AppContext } from "../../AppContext";
-
-export type figures = "rock" | "scissors" | "paper";
+import { FigureTypes } from "../choices/ChoicesBoard";
 
 export function InitialBoard() {
   const { setUserChoice } = useContext(AppContext);
-  const getFigureButton = (type: figures) => (
+  const getFigureButton = (type: FigureTypes) => (
     <button
       className="figure-button"
       key={type}
       value={type}
-      onClick={(e) => setUserChoice(e.currentTarget.value as figures)}
+      onClick={(e) => setUserChoice(e.currentTarget.value as FigureTypes)}
     >
       <Figure type={type} />
     </button>
