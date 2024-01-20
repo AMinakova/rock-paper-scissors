@@ -1,15 +1,18 @@
+import { useContext } from "react";
 import { Figure } from "../figure/Figure";
-import "./Choices.css";
+import "./InitialBoard.css";
+import { AppContext } from "../../AppContext";
 
 export type figures = "rock" | "scissors" | "paper";
 
-export function InitialBoard(props: { handleChoice: (value: string) => void }) {
+export function InitialBoard() {
+  const { setUserChoice } = useContext(AppContext);
   const getFigureButton = (type: figures) => (
     <button
       className="figure-button"
       key={type}
       value={type}
-      onClick={(e) => props.handleChoice(e.currentTarget.value)}
+      onClick={(e) => setUserChoice(e.currentTarget.value as figures)}
     >
       <Figure type={type} />
     </button>

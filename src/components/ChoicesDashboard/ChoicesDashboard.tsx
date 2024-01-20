@@ -1,15 +1,10 @@
+import { useContext } from "react";
 import { InitialBoard } from "../InitialBoard/InitialBoard";
+import { AppContext } from "../../AppContext";
+import { Choices } from "../choices/Choices";
 
-type choices = "rock" | "scissors" | "paper";
+export function ChoicesDashboard() {
+  const { userChoice } = useContext(AppContext);
 
-export function ChoicesDashboard(props: {
-  handleChoice: (value: string) => void;
-}) {
-  return (
-    <InitialBoard
-      handleChoice={function (value: string): void {
-        throw new Error("Function not implemented.");
-      }}
-    />
-  );
+  return userChoice ? <Choices /> : <InitialBoard />;
 }

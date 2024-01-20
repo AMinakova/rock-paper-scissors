@@ -5,26 +5,13 @@
   border-radius: 50%;
   border: 0px;
 }
-.overlay-content {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  background-color: #2ecc71;
-  color: #ffffff;
-  padding: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
 .figure-button:hover {
   box-shadow: hsl(217, 16%, 45%) 0px 0px 29px 0px;
 }
 .figure-button:active {
-  background: #e5e5e5;
-  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-  box-shadow: inset 0px 0px 5px #c1c1c1;
-  outline: none;
+  box-shadow: white 0px 0px 29px 0px;
 }
+
 .game-initial {
   display: flex;
   flex-direction: column;
