@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Figure } from "../figure/Figure";
-import "./InitialBoard.css";
+import "./OptionsBoard.css";
 import { AppContext } from "../../AppContext";
-import { FigureTypes } from "../choices/ChoicesBoard";
+import { FigureTypes } from "../choices/DecisionsBoard";
 
-export function InitialBoard() {
+export function OptionsBoard() {
   const { setUserChoice } = useContext(AppContext);
   const getFigureButton = (type: FigureTypes) => (
     <button

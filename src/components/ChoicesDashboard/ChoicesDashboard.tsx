@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { InitialBoard } from "../InitialBoard/InitialBoard";
+import { OptionsBoard } from "../OptionsBoard/OptionsBoard";
 import { AppContext } from "../../AppContext";
-import { ChoicesBoard } from "../choices/ChoicesBoard";
+import { DecisionsBoard } from "../choices/DecisionsBoard";
 
 export function ChoicesDashboard() {
   const { userChoice } = useContext(AppContext);
 
-  return userChoice ? <ChoicesBoard /> : <InitialBoard />;
+  return userChoice ? <DecisionsBoard /> : <OptionsBoard />;
 }
