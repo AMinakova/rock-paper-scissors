@@ -31,7 +31,6 @@ export function DecisionsBoard() {
 
   const updateScore = (randomChoice: FigureType) => {
     var result = "DRAW";
-    console.log("app");
     if (randomChoice !== userChoice) {
       result = winOptions[userChoice] === randomChoice ? "WIN" : "LOSE";
       setScore(result === "WIN" ? score + 1 : score - 1);
