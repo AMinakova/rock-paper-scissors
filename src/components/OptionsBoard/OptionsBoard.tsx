@@ -1,16 +1,16 @@
 import { useContext } from "react";
-import { Figure, FigureTypes } from "../figure/Figure";
+import { Figure, FigureType } from "../figure/Figure";
 import "./OptionsBoard.css";
 import { AppContext } from "../../AppContext";
 
 export function OptionsBoard() {
   const { setUserChoice } = useContext(AppContext);
-  const getFigureButton = (type: FigureTypes) => (
+  const getFigureButton = (type: FigureType) => (
     <button
       className="figure-button"
       key={type}
       value={type}
-      onClick={(e) => setUserChoice(e.currentTarget.value as FigureTypes)}
+      onClick={(e) => setUserChoice(e.currentTarget.value as FigureType)}
     >
       <Figure type={type} size="m" />
     </button>

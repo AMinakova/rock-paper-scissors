@@ -1,13 +1,14 @@
 import { useState } from "react";
 import "./App.css";
 import { ScoreBoard } from "./components/ScoreBoard/ScoreBoard";
-import { ChoicesDashboard } from "./components/ChoicesDashboard/ChoicesDashboard";
-import { AppContext, Choices } from "./AppContext";
+import { GameDashboard } from "./components/GameDashboard/GameDashboard";
+import { AppContext } from "./AppContext";
+import { FigureType } from "./components/figure/Figure";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [userChoice, setUserChoice] = useState<Choices>(null);
-  const [appChoice, setAppChoice] = useState<Choices>(null);
+  const [userChoice, setUserChoice] = useState<FigureType>("");
+  const [appChoice, setAppChoice] = useState<FigureType>("");
 
   return (
     <AppContext.Provider
@@ -16,7 +17,7 @@ function App() {
       <div className="content">
         <div className="container">
           <ScoreBoard count={count}></ScoreBoard>
-          <ChoicesDashboard />
+          <GameDashboard />
         </div>
         <button className="transparent">
           <p>RULES</p>

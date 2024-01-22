@@ -1,19 +1,17 @@
 import { Dispatch, SetStateAction, createContext } from "react";
-import { FigureTypes } from "./components/figure/Figure";
-
-export type Choices = FigureTypes | null;
+import { FigureType } from "./components/figure/Figure";
 
 export type Context = {
-  userChoice: Choices;
-  setUserChoice: Dispatch<SetStateAction<Choices>>;
-  appChoice: Choices;
-  setAppChoice: Dispatch<SetStateAction<Choices>>;
+  userChoice: FigureType;
+  setUserChoice: Dispatch<SetStateAction<FigureType>>;
+  appChoice: FigureType;
+  setAppChoice: Dispatch<SetStateAction<FigureType>>;
 };
 
 export const initialContext: Context = {
-  userChoice: null,
+  userChoice: "",
   setUserChoice: (): void => {},
-  appChoice: null,
+  appChoice: "",
   setAppChoice: (): void => {},
 };
 
