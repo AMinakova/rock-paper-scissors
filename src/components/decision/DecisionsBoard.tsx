@@ -9,9 +9,11 @@ const winOptions: Record<string, string> = {
   scissors: "paper",
 };
 
+type Result = "LOSE" | "WIN" | "DRAW";
+
 export function DecisionsBoard() {
   const [appChoice, setAppChoice] = useState<FigureType>();
-  const [userWin, setWin] = useState<boolean | null>();
+  const [gameResult, setResult] = useState<Result | undefined>();
   const { userChoice, score, setScore, startNewRound } = useContext(AppContext);
 
   useEffect(() => {
@@ -26,33 +28,38 @@ export function DecisionsBoard() {
     const randomIndex: number = Math.floor(Math.random() * figures.length);
     return figures[randomIndex];
   };
-  const updateScore = (appChoice: FigureType) => {
-    if (appChoice !== userChoice) {
-      var userWon = winOptions[userChoice] === appChoice ? true : false;
-      setWin(userWon);
-      setScore(userWon ? score + 1 : score - 1);
+
+  const updateScore = (randomChoice: FigureType) => {
+    var result = "DRAW";
+    console.log("app");
+    if (randomChoice !== userChoice) {
+      result = winOptions[userChoice] === randomChoice ? "WIN" : "LOSE";
+      setScore(result === "WIN" ? score + 1 : score - 1);
     }
+    setResult(result as Result);
   };
+
   const showResult = () => (
     <div className={styles.resultContainer}>
-      <p>YOU {userWin ? "WIN" : "LOSE"}</p>
+      <p>
+        {gameResult !== "DRAW" && "YOU "} {gameResult}
+      </p>
       <button onClick={() => startNewRound()}>PLAY AGAIN</button>
     </div>
   );
-
   return (
     <div className={styles.decisionsBoard}>
       <div>
         <p>YOU PICKED</p>
         <Figure type={userChoice} size="l" />
       </div>
-      {userWin != null && showResult()}
+      {!!gameResult && showResult()}
       <div>
         <p>THE HOUSE PICKED</p>
         {appChoice ? (
           <Figure type={appChoice} size="l" />
         ) : (
-          <div className={styles.decisionDummy}></div>
+          <div className={styles.decisionAnimation}></div>
         )}
       </div>
     </div>
