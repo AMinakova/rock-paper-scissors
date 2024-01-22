@@ -1,0 +1,50 @@
+.decisionsBoard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.decisionsBoard > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.decisionDummy {
+  width: 177.6px;
+  height: 177.6px;
+  background-color: rgba(39, 39, 39, 0.178);
+  border-radius: 50%;
+  margin: 31.2px;
+  animation-name: dummy;
+  animation-duration: 3s;
+  animation-delay: 0.5s;
+}
+
+@keyframes dummy {
+  0% {
+    box-shadow: none;
+  }
+  20% {
+    box-shadow: hsl(217, 16%, 45%) 0px 0px 50px 0px;
+  }
+  40% {
+    box-shadow: none;
+  }
+  60% {
+    box-shadow: hsl(217, 16%, 45%) 0px 0px 50px 0px;
+  }
+  80% {
+    box-shadow: none;
+  }
+  100% {
+    box-shadow: hsl(217, 16%, 45%) 0px 0px 50px 0px;
+  }
+}
+.decisionsBoard p {
+  color: white;
+  font-size: 1.1rem;
+}

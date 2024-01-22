@@ -1,10 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext, Choices } from "../../AppContext";
-import { Figure } from "../figure/Figure";
-import styles from "./style.module.css";
-
-const figures = ["rock", "scissors", "paper"];
-export type FigureTypes = (typeof figures)[number];
+import { Figure, FigureTypes, figures } from "../figure/Figure";
+import styles from "./DecisionsBoard.module.css";
 
 export function DecisionsBoard() {
   const [appChoice, setAppChoice] = useState<Choices>();
@@ -12,7 +9,7 @@ export function DecisionsBoard() {
   useEffect(() => {
     setTimeout(() => {
       setAppChoice(getRandomFigure() as Choices);
-    }, 1000);
+    }, 3000);
   }, []);
 
   const { userChoice } = useContext(AppContext);
@@ -26,11 +23,15 @@ export function DecisionsBoard() {
     <div className={styles.decisionsBoard}>
       <div>
         <p>YOU PICKED</p>
-        <Figure type={userChoice as FigureTypes} />
+        <Figure type={userChoice as FigureTypes} size="l" />
       </div>
       <div>
-        <p>A HOUSE PICKED</p>
-        <Figure type={appChoice as FigureTypes} />
+        <p>THE HOUSE PICKED</p>
+        {appChoice ? (
+          <Figure type={appChoice as FigureTypes} size="l" />
+        ) : (
+          <div className={styles.decisionDummy}></div>
+        )}
       </div>
     </div>
   );

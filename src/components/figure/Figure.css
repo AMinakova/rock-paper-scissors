@@ -1,7 +1,9 @@
 :root {
-  --circle-size: 160px;
+  --circle-size-s: 120px;
+  --circle-size-m: 160px;
+  --circle-size-l: 240px;
+  --child-padding: 60px;
   --circle-border: 1rem;
-  --circle-color: white;
   --icon-rock: url("..\..\assets\icon-rock.svg");
   --icon-scissors: url("..\..\assets\icon-scissors.svg");
   --icon-paper: url("..\..\assets\icon-paper.svg");
@@ -10,8 +12,8 @@
   --color-paper: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
 }
 .circle-parent {
-  width: var(--circle-size);
-  height: var(--circle-size);
+  width: var(--circle-size-m);
+  height: var(--circle-size-m);
   position: relative;
   border-radius: 50%;
   border: 0px;
@@ -26,7 +28,7 @@
   background-size: 50% auto;
   box-shadow: 0 5px rgba(0, 0, 0, 0.4) inset;
   position: absolute;
-  padding: 60px;
+  padding: calc(var(--circle-size-m) * 0.37);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -51,4 +53,26 @@
 
 .scissors-color {
   background: var(--color-scissors);
+}
+
+.circle-parent.s {
+  width: var(--circle-size-s);
+  height: var(--circle-size-s);
+}
+.circle-parent.m {
+  width: var(--circle-size-m);
+  height: var(--circle-size-m);
+}
+.circle-parent.l {
+  width: var(--circle-size-l);
+  height: var(--circle-size-l);
+}
+.circle-child.s {
+  padding: calc(var(--circle-size-s) * 0.37);
+}
+.circle-child.m {
+  padding: calc(var(--circle-size-m) * 0.37);
+}
+.circle-child.l {
+  padding: calc(var(--circle-size-l) * 0.37);
 }

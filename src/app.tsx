@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
-import { ScoreBoard } from "./components/ScoreBoard";
+import { ScoreBoard } from "./components/ScoreBoard/ScoreBoard";
 import { ChoicesDashboard } from "./components/ChoicesDashboard/ChoicesDashboard";
 import { AppContext, Choices } from "./AppContext";
 

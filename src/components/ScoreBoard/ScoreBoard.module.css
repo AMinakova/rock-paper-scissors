@@ -1,0 +1,37 @@
+:root {
+  --score-width: 6rem;
+}
+#logo {
+  margin: 15px 20px 15px 20px;
+}
+.scoreContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2px solid hsl(217, 16%, 45%);
+  border-radius: 20px;
+  width: 100%;
+}
+.scoreContainer p {
+  color: black;
+  margin: 0px;
+}
+
+.scoreLabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+  height: var(--score-width);
+  width: var(--score-width);
+  margin: 15px 20px 15px 20px;
+}
+
+.scoreLabel > :first-child {
+  color: hsl(229, 64%, 46%);
+}
+.count {
+  font-size: 2rem;
+}

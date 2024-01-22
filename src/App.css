@@ -1,7 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap);
-:root {
-  --score-width: 6rem;
-}
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600&display=swap");
 
 body {
   background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
@@ -11,16 +8,12 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0px;
-  font-family: BarlowSemiCondensed, sans-serif;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.2rem;
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 80%;
-}
 .content {
   display: flex;
   flex-direction: column;
@@ -31,15 +24,6 @@ body {
 button > p {
   margin: 0px;
 }
-
-.transparent {
-  background-color: transparent;
-  border: 2px solid white;
-  text-align: center;
-  color: white;
-  align-self: flex-end;
-}
-
 .container {
   width: 35em;
   display: flex;
@@ -47,22 +31,19 @@ button > p {
   flex-direction: column;
   align-items: center;
 }
-.score-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border: 2px solid hsl(217, 16%, 45%);
-  border-radius: 20px;
-  padding: 15px 20px 15px 20px;
-  width: 100%;
-}
-.score-label {
+
+#root {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  background-color: white;
-  height: var(--score-width);
-  width: var(--score-width);
+  justify-content: center;
+  width: 80%;
+}
+
+.transparent {
+  background-color: transparent;
+  border: 2px solid white;
+  text-align: center;
+  color: white;
+  align-self: flex-end;
 }

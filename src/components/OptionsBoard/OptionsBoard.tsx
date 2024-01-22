@@ -1,8 +1,7 @@
 import { useContext } from "react";
-import { Figure } from "../figure/Figure";
+import { Figure, FigureTypes } from "../figure/Figure";
 import "./OptionsBoard.css";
 import { AppContext } from "../../AppContext";
-import { FigureTypes } from "../choices/DecisionsBoard";
 
 export function OptionsBoard() {
   const { setUserChoice } = useContext(AppContext);
@@ -13,7 +12,7 @@ export function OptionsBoard() {
       value={type}
       onClick={(e) => setUserChoice(e.currentTarget.value as FigureTypes)}
     >
-      <Figure type={type} />
+      <Figure type={type} size="m" />
     </button>
   );
   return (

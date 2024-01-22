@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, createContext } from "react";
-import { FigureTypes } from "./components/choices/DecisionsBoard";
+import { FigureTypes } from "./components/figure/Figure";
 
 export type Choices = FigureTypes | null;
 
