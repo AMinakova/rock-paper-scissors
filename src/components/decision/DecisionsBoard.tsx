@@ -16,10 +16,8 @@ export function DecisionsBoard() {
 
   useEffect(() => {
     var randomAppChoice = getRandomFigure();
-    //wait to show animation of dummy decision
     setTimeout(() => {
       setAppChoice(randomAppChoice);
-      //define the winner
       updateScore(randomAppChoice);
     }, 3000);
   }, []);
@@ -35,6 +33,12 @@ export function DecisionsBoard() {
       setScore(userWon ? score + 1 : score - 1);
     }
   };
+  const showResult = () => (
+    <div className={styles.resultContainer}>
+      <p>YOU {userWin ? "WIN" : "LOSE"}</p>
+      <button>PLAY AGAIN</button>
+    </div>
+  );
 
   return (
     <div className={styles.decisionsBoard}>
@@ -42,6 +46,7 @@ export function DecisionsBoard() {
         <p>YOU PICKED</p>
         <Figure type={userChoice} size="l" />
       </div>
+      {userWin != null && showResult()}
       <div>
         <p>THE HOUSE PICKED</p>
         {appChoice ? (
