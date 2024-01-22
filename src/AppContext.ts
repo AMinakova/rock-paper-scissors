@@ -8,15 +8,17 @@ export type Context = {
   setAppChoice: Dispatch<SetStateAction<FigureType>>;
   score: number;
   setScore: Dispatch<SetStateAction<number>>;
+  startNewRound: Function;
 };
 
-export const initialContext: Context = {
+const initialContext: Context = {
   userChoice: "",
   setUserChoice: (): void => {},
   appChoice: "",
   setAppChoice: (): void => {},
   score: 0,
   setScore: (): void => {},
+  startNewRound: (): void => {},
 };
 
 export const AppContext = createContext<Context>(initialContext);

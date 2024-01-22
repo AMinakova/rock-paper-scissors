@@ -12,7 +12,7 @@ const winOptions: Record<string, string> = {
 export function DecisionsBoard() {
   const [appChoice, setAppChoice] = useState<FigureType>();
   const [userWin, setWin] = useState<boolean | null>();
-  const { userChoice, score, setScore } = useContext(AppContext);
+  const { userChoice, score, setScore, startNewRound } = useContext(AppContext);
 
   useEffect(() => {
     var randomAppChoice = getRandomFigure();
@@ -36,7 +36,7 @@ export function DecisionsBoard() {
   const showResult = () => (
     <div className={styles.resultContainer}>
       <p>YOU {userWin ? "WIN" : "LOSE"}</p>
-      <button>PLAY AGAIN</button>
+      <button onClick={() => startNewRound()}>PLAY AGAIN</button>
     </div>
   );
 

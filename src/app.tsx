@@ -10,6 +10,11 @@ function App() {
   const [userChoice, setUserChoice] = useState<FigureType>("");
   const [appChoice, setAppChoice] = useState<FigureType>("");
 
+  const startNewRound = () => {
+    setUserChoice("");
+    setAppChoice("");
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -19,6 +24,7 @@ function App() {
         setAppChoice,
         score,
         setScore,
+        startNewRound,
       }}
     >
       <div className="content">
