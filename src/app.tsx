@@ -6,17 +6,24 @@ import { AppContext } from "./AppContext";
 import { FigureType } from "./components/figure/Figure";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [score, setScore] = useState<number>(0);
   const [userChoice, setUserChoice] = useState<FigureType>("");
   const [appChoice, setAppChoice] = useState<FigureType>("");
 
   return (
     <AppContext.Provider
-      value={{ userChoice, setUserChoice, appChoice, setAppChoice }}
+      value={{
+        userChoice,
+        setUserChoice,
+        appChoice,
+        setAppChoice,
+        score,
+        setScore,
+      }}
     >
       <div className="content">
         <div className="container">
-          <ScoreBoard count={count}></ScoreBoard>
+          <ScoreBoard></ScoreBoard>
           <GameDashboard />
         </div>
         <button className="transparent">

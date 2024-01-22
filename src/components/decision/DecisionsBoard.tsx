@@ -11,25 +11,29 @@ const winOptions: Record<string, string> = {
 
 export function DecisionsBoard() {
   const [appChoice, setAppChoice] = useState<FigureType>();
-  const [win, setWin] = useState<boolean | null>();
+  const [userWin, setWin] = useState<boolean | null>();
+  const { userChoice, score, setScore } = useContext(AppContext);
 
   useEffect(() => {
-    var randomFigure = getRandomFigure();
+    var randomAppChoice = getRandomFigure();
     //wait to show animation of dummy decision
     setTimeout(() => {
-      setAppChoice(randomFigure);
+      setAppChoice(randomAppChoice);
+      //define the winner
+      updateScore(randomAppChoice);
     }, 3000);
-
-    //define the winner
-    const currentWin = winOptions[userChoice] === randomFigure ? true : false;
-    setWin(currentWin);
   }, []);
-
-  const { userChoice } = useContext(AppContext);
 
   const getRandomFigure = () => {
     const randomIndex: number = Math.floor(Math.random() * figures.length);
     return figures[randomIndex];
+  };
+  const updateScore = (appChoice: FigureType) => {
+    if (appChoice !== userChoice) {
+      var userWon = winOptions[userChoice] === appChoice ? true : false;
+      setWin(userWon);
+      setScore(userWon ? score + 1 : score - 1);
+    }
   };
 
   return (
