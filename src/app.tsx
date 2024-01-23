@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./App.css";
 import { ScoreBoard } from "./components/ScoreBoard/ScoreBoard";
-import { GameDashboard } from "./components/GameDashboard/GameDashboard";
+import { GameDashboard } from "./components/gameMain/GameDashboard";
 import { AppContext } from "./AppContext";
 import { FigureType } from "./components/figure/Figure";
+import { DecisionsBoard } from "./components/decision/DecisionsBoard";
+import { GameBoard } from "./components/gameBoard/GameBoard";
 
 function App() {
   const [score, setScore] = useState<number>(0);
@@ -30,7 +32,7 @@ function App() {
       <div className="content">
         <div className="container">
           <ScoreBoard></ScoreBoard>
-          <GameDashboard />
+          {userChoice ? <DecisionsBoard /> : <GameBoard />}
         </div>
         <button className="transparent">
           <p>RULES</p>
