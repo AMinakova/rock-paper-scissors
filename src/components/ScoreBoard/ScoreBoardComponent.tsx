@@ -3,7 +3,7 @@ import logo from "../../assets/logo.svg";
 import styles from "./ScoreBoard.module.css";
 import { AppContext } from "../../AppContext";
 
-export function ScoreBoard() {
+export function ScoreBoardComponent() {
   const { score } = useContext(AppContext);
   return (
     <div className={styles.scoreContainer}>

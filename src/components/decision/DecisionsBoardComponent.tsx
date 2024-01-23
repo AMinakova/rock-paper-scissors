@@ -1,6 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../AppContext";
-import { Figure, FigureType, figures } from "../figure/Figure";
+import {
+  FigureComponent,
+  FigureType,
+  figures,
+} from "../figure/FigureComponent";
 import styles from "./DecisionsBoard.module.css";
 
 const winOptions: Record<string, string> = {
@@ -11,7 +15,7 @@ const winOptions: Record<string, string> = {
 
 type Result = "LOSE" | "WIN" | "DRAW";
 
-export function DecisionsBoard() {
+export function DecisionsBoardComponent() {
   const [appChoice, setAppChoice] = useState<FigureType>();
   const [gameResult, setResult] = useState<Result | undefined>();
   const { userChoice, score, setScore, startNewRound } = useContext(AppContext);
@@ -50,13 +54,13 @@ export function DecisionsBoard() {
     <div className={styles.decisionsBoard}>
       <div>
         <p>YOU PICKED</p>
-        <Figure type={userChoice} size="l" />
+        <FigureComponent type={userChoice} size="l" />
       </div>
       {!!gameResult && showResult()}
       <div>
         <p>THE HOUSE PICKED</p>
         {appChoice ? (
-          <Figure type={appChoice} size="l" />
+          <FigureComponent type={appChoice} size="l" />
         ) : (
           <div className={styles.decisionAnimation}></div>
         )}

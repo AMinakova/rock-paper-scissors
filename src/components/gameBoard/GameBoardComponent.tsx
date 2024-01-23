@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { Figure, FigureType } from "../figure/Figure";
-import "./OptionsBoard.css";
+import { FigureComponent, FigureType } from "../figure/FigureComponent";
+import "./GameBoard.css";
 import { AppContext } from "../../AppContext";
 
-export function GameBoard() {
+export function GameBoardComponent() {
   const { setUserChoice } = useContext(AppContext);
   const getFigureButton = (type: FigureType) => (
     <button
@@ -12,7 +12,7 @@ export function GameBoard() {
       value={type}
       onClick={(e) => setUserChoice(e.currentTarget.value as FigureType)}
     >
-      <Figure type={type} size="m" />
+      <FigureComponent type={type} size="m" />
     </button>
   );
   return (
