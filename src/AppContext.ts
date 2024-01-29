@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, createContext } from "react";
-import { FigureType } from "./components/figure/Figure";
+import { FigureType } from "./components/figure/FigureComponent";
 
 export type Context = {
   userChoice: FigureType;
