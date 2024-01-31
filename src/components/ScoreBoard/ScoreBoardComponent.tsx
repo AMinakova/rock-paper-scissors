@@ -9,8 +9,8 @@ export function ScoreBoardComponent() {
     <div className={styles.scoreContainer}>
       <img src={logo} alt="Logo" id={styles.logo} />
       <div className={styles.scoreLabel}>
-        <p className="font-extra-spacing">SCORE</p>
-        <p className={styles.count}>{score}</p>
+        <div className="font-extra-spacing">SCORE</div>
+        <div className={styles.count}>{score}</div>
       </div>
     </div>
   );

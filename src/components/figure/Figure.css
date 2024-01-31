@@ -1,6 +1,6 @@
 :root {
-  --circle-size-s: 120px;
-  --circle-size-m: 160px;
+  --circle-border-koef: 0.38;
+  --circle-size-m: 180px;
   --circle-size-l: 240px;
   --child-padding: 60px;
   --circle-border: 1rem;
@@ -17,7 +17,7 @@
   position: relative;
   border-radius: 50%;
   border: 0px;
-  box-shadow: 0px -5px rgba(0, 0, 0, 0.4) inset;
+  box-shadow: 0px -8px rgba(0, 0, 0, 0.25) inset;
 }
 
 .circle-child {
@@ -25,10 +25,10 @@
   background-color: white;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 50% auto;
-  box-shadow: 0 5px rgba(0, 0, 0, 0.4) inset;
+  background-size: 45% auto;
+  box-shadow: 0 8px rgba(0, 0, 0, 0.3) inset;
   position: absolute;
-  padding: calc(var(--circle-size-m) * 0.37);
+  padding: calc(var(--circle-size-m) * var(--circle-border-koef));
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -55,10 +55,6 @@
   background: var(--color-scissors);
 }
 
-.circle-parent.s {
-  width: var(--circle-size-s);
-  height: var(--circle-size-s);
-}
 .circle-parent.m {
   width: var(--circle-size-m);
   height: var(--circle-size-m);
@@ -67,12 +63,12 @@
   width: var(--circle-size-l);
   height: var(--circle-size-l);
 }
-.circle-child.s {
-  padding: calc(var(--circle-size-s) * 0.37);
-}
+
 .circle-child.m {
-  padding: calc(var(--circle-size-m) * 0.37);
+  padding: calc(var(--circle-size-m) * var(--circle-border-koef));
+  box-shadow: 0 8px rgba(0, 0, 0, 0.15) inset;
 }
 .circle-child.l {
-  padding: calc(var(--circle-size-l) * 0.37);
+  padding: calc(var(--circle-size-l) * var(--circle-border-koef));
+  box-shadow: 0 8px rgba(0, 0, 0, 0.15) inset;
 }

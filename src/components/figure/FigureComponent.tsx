@@ -2,7 +2,7 @@ import "./Figure.css";
 
 export const figures = ["rock", "scissors", "paper"];
 export type FigureType = (typeof figures)[number];
-export type FigureSize = "s" | "m" | "l";
+export type FigureSize = "m" | "l";
 
 export function FigureComponent(props: { type: FigureType; size: FigureSize }) {
   return (

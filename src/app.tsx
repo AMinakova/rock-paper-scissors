@@ -10,7 +10,7 @@ import { RulesComponent } from "./components/rules/RulesComponent";
 
 Modal.setAppElement("#root");
 function App() {
-  const [score, setScore] = useState<number>(0);
+  const [score, setScore] = useState<number>(12);
   const [userChoice, setUserChoice] = useState<FigureType>("");
   const [appChoice, setAppChoice] = useState<FigureType>("");
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -35,14 +35,13 @@ function App() {
         startNewRound,
       }}
     >
-      <div className="content">
-        <div className="container">
-          <ScoreBoardComponent></ScoreBoardComponent>
-          {userChoice ? <DecisionsBoardComponent /> : <GameBoardComponent />}
-        </div>
+      <div className="container">
+        <ScoreBoardComponent></ScoreBoardComponent>
+        {userChoice ? <DecisionsBoardComponent /> : <GameBoardComponent />}
         <button className="transparent font-extra-spacing" onClick={openModal}>
           <p>RULES</p>
         </button>
+
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
