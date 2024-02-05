@@ -5,12 +5,12 @@
   align-items: center;
   gap: 50px;
 }
-.decisionsBoard > div {
+.playerDecision {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
 }
 
 .decisionAnimation {
@@ -47,10 +47,21 @@
 .decisionsBoard p {
   color: white;
   font-size: 1.1rem;
+  margin-top: 0px;
+}
+.playAgainButton {
+  width: 100%;
+}
+.playAgainButton:hover {
+  color: hsl(349, 71%, 52%);
 }
 .resultContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+}
+.resultContainer > p {
+  font-size: 3rem;
+  margin: 0px;
 }

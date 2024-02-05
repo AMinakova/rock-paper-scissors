@@ -24,7 +24,7 @@ export function DecisionsBoardComponent() {
     var randomAppChoice = getRandomFigure();
     setTimeout(() => {
       setAppChoice(randomAppChoice);
-      updateScore(randomAppChoice);
+      setTimeout(() => updateScore(randomAppChoice), 2000);
     }, 3000);
   }, []);
 
@@ -44,23 +44,36 @@ export function DecisionsBoardComponent() {
 
   const showResult = () => (
     <div className={styles.resultContainer}>
-      <p>
+      <p className="font-extra-spacing">
         {gameResult !== "DRAW" && "YOU "} {gameResult}
       </p>
-      <button onClick={() => startNewRound()}>PLAY AGAIN</button>
+      <button
+        className={`font-extra-spacing ${styles.playAgainButton}`}
+        onClick={() => startNewRound()}
+      >
+        PLAY AGAIN
+      </button>
     </div>
   );
   return (
     <div className={styles.decisionsBoard}>
-      <div>
-        <p>YOU PICKED</p>
-        <FigureComponent type={userChoice} size="l" />
+      <div className={styles.playerDecision}>
+        <p className="font-extra-spacing">YOU PICKED</p>
+        <FigureComponent
+          type={userChoice}
+          size="l"
+          addHighlight={gameResult === "WIN"}
+        />
       </div>
       {!!gameResult && showResult()}
-      <div>
-        <p>THE HOUSE PICKED</p>
+      <div className={styles.playerDecision}>
+        <p className="font-extra-spacing">THE HOUSE PICKED</p>
         {appChoice ? (
-          <FigureComponent type={appChoice} size="l" />
+          <FigureComponent
+            type={appChoice}
+            size="l"
+            addHighlight={gameResult === "LOSE"}
+          />
         ) : (
           <div className={styles.decisionAnimation}></div>
         )}
