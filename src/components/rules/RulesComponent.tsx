@@ -6,7 +6,7 @@ export function RulesComponent(props: { closeModal: () => void }) {
   return (
     <div className={styles.modalContainer}>
       <div className={styles.modalHeader}>
-        <h2>RULES</h2>
+        <header>RULES</header>
         <button className={styles.button} onClick={() => props.closeModal()}>
           <img src={close}></img>
         </button>

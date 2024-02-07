@@ -47,25 +47,22 @@ function App() {
           onRequestClose={closeModal}
           style={{
             overlay: {
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
               backgroundColor: "rgba(0, 0, 0, 0.35)",
             },
             content: {
               position: "absolute",
-              top: "25vh",
-              left: "30vw",
-              right: "30vw",
-              bottom: "25vh",
+              display: "flex",
               border: "1px solid #ccc",
               background: "white",
               overflow: "auto",
               WebkitOverflowScrolling: "touch",
               borderRadius: "10px",
               outline: "none",
+              padding: "30px",
+              inset: "auto",
             },
           }}
         >
