@@ -1,10 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../AppContext";
-import {
-  FigureComponent,
-  FigureType,
-  figures,
-} from "../figure/FigureComponent";
+import { FigureComponent } from "../figure/FigureComponent";
 import styles from "./DecisionsBoard.module.css";
 
 const winOptions: Record<string, string> = {
@@ -16,30 +12,29 @@ const winOptions: Record<string, string> = {
 type Result = "LOSE" | "WIN" | "DRAW";
 
 export function DecisionsBoardComponent() {
-  const [appChoice, setAppChoice] = useState<FigureType>();
   const [gameResult, setResult] = useState<Result | undefined>();
-  const { userChoice, score, setScore, startNewRound } = useContext(AppContext);
+  const { userChoice, appChoice, score, setScore, startNewRound } =
+    useContext(AppContext);
 
   useEffect(() => {
-    var randomAppChoice = getRandomFigure();
-    setTimeout(() => {
-      setAppChoice(randomAppChoice);
-      setTimeout(() => updateScore(randomAppChoice), 2000);
-    }, 3000);
-  }, []);
+    console.log("inUseEffect of decisionBoard");
+    setTimeout(() => updateScore(), 3000);
+  }, [appChoice]);
 
-  const getRandomFigure = () => {
-    const randomIndex: number = Math.floor(Math.random() * figures.length);
-    return figures[randomIndex];
-  };
+  const updateScore = () => {
+    console.log("current score: ", score);
+    var result: Result = "DRAW";
+    console.log("appChoice: ", appChoice);
+    console.log("userChoice: ", userChoice);
 
-  const updateScore = (randomChoice: FigureType) => {
-    var result = "DRAW";
-    if (randomChoice !== userChoice) {
-      result = winOptions[userChoice] === randomChoice ? "WIN" : "LOSE";
+    if (appChoice !== userChoice) {
+      console.log("is in if ");
+      result = winOptions[userChoice] === appChoice ? "WIN" : "LOSE";
+      console.log("result ", result);
+
       setScore(result === "WIN" ? score + 1 : score - 1);
     }
-    setResult(result as Result);
+    setResult(result);
   };
 
   const showResult = () => (
@@ -68,14 +63,13 @@ export function DecisionsBoardComponent() {
       {!!gameResult && showResult()}
       <div className={styles.playerDecision}>
         <p className="font-extra-spacing">THE HOUSE PICKED</p>
-        {appChoice ? (
+        {!!appChoice && (
           <FigureComponent
             type={appChoice}
             size="l"
             addHighlight={gameResult === "LOSE"}
+            addAnimation={true}
           />
-        ) : (
-          <div className={styles.decisionAnimation}></div>
         )}
       </div>
     </div>

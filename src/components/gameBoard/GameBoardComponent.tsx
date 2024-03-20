@@ -1,16 +1,27 @@
 import { useContext } from "react";
-import { FigureComponent, FigureType } from "../figure/FigureComponent";
+import {
+  FigureComponent,
+  FigureType,
+  figures,
+} from "../figure/FigureComponent";
 import "./GameBoard.css";
 import { AppContext } from "../../AppContext";
 
 export function GameBoardComponent() {
-  const { setUserChoice } = useContext(AppContext);
+  const { setUserChoice, setAppChoice } = useContext(AppContext);
+
+  const startNewRound = (value: FigureType) => {
+    setUserChoice(value);
+    let randomIndex: number = Math.floor(Math.random() * figures.length);
+    setAppChoice(figures[randomIndex]);
+  };
+
   const getFigureButton = (type: FigureType) => (
     <button
       className="figure-button"
       key={type}
       value={type}
-      onClick={(e) => setUserChoice(e.currentTarget.value as FigureType)}
+      onClick={(e) => startNewRound(e.currentTarget.value as FigureType)}
     >
       <FigureComponent type={type} size="m" />
     </button>
