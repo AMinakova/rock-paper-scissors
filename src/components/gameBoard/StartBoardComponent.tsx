@@ -4,10 +4,10 @@ import {
   FigureType,
   figures,
 } from "../figure/FigureComponent";
-import "./GameBoard.css";
+import "./StartBoard.css";
 import { AppContext } from "../../AppContext";
 
-export function GameBoardComponent() {
+export function StartBoardComponent() {
   const { setUserChoice, setAppChoice } = useContext(AppContext);
 
   const startNewRound = (value: FigureType) => {

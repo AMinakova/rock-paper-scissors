@@ -11,21 +11,9 @@ export function FigureComponent(props: {
   addHighlight?: boolean;
   addAnimation?: boolean;
 }) {
-  const [showAnimation, setShowAnimation] = useState(false);
-  useEffect(() => {
-    if (props.addAnimation) {
-      setShowAnimation(true);
-      console.log("in useEffect of an Figure!!");
-      const timeout = setTimeout(() => setShowAnimation(false), 3000);
-      return () => {
-        clearTimeout(timeout);
-      };
-    }
-  }, []);
-
   return (
     <div>
-      {showAnimation ? (
+      {props.addAnimation ? (
         <div className="circle-parent empty"></div>
       ) : (
         <div

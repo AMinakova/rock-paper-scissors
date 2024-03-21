@@ -4,7 +4,7 @@ import { ScoreBoardComponent } from "./components/scoreBoard/ScoreBoardComponent
 import { AppContext } from "./AppContext";
 import { FigureType } from "./components/figure/FigureComponent";
 import { DecisionsBoardComponent } from "./components/decision/DecisionsBoardComponent";
-import { GameBoardComponent } from "./components/gameBoard/GameBoardComponent";
+import { StartBoardComponent } from "./components/gameBoard/StartBoardComponent";
 import Modal from "react-modal";
 import { RulesComponent } from "./components/rules/RulesComponent";
 
@@ -37,7 +37,7 @@ function App() {
     >
       <div className="container">
         <ScoreBoardComponent></ScoreBoardComponent>
-        {userChoice ? <DecisionsBoardComponent /> : <GameBoardComponent />}
+        {userChoice ? <DecisionsBoardComponent /> : <StartBoardComponent />}
         <button className="transparent font-extra-spacing" onClick={openModal}>
           <p>RULES</p>
         </button>
