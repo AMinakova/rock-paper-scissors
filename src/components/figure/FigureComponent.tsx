@@ -17,9 +17,8 @@ export function FigureComponent(props: {
         <div className="circle-parent empty"></div>
       ) : (
         <div
-          className={`circle-parent ${props.type}-color ${props.size}${
-            props.addHighlight ? " highlight" : ""
-          }`}
+          className={`circle-parent ${props.type}-color ${props.size}`}
+          id={props.addHighlight ? "highlight" : ""}
         >
           <div
             className={`circle-child ${props.type} background ${props.size}`}

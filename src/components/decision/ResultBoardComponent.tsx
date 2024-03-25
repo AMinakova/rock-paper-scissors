@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../AppContext";
 import { FigureComponent } from "../figure/FigureComponent";
-import styles from "./DecisionsBoard.module.css";
+import styles from "./ResultBoard.module.css";
 
 const winOptions: Record<string, string> = {
   paper: "rock",
@@ -15,47 +15,45 @@ enum Result {
   DRAW = "DRAW",
 }
 
-export function DecisionsBoardComponent() {
-  const [result, setResult] = useState<Result | undefined>();
-  const [showResult, setShowResult] = useState<boolean>(false);
-  const [addFigureAnimation, setAddFigureAnimation] = useState<boolean>(true);
+export function ResultBoardComponent() {
+  const [animateFigure, setAnimateFigure] = useState<boolean>(true);
+  const [roundResult, setRoundResult] = useState<Result | undefined>(undefined);
   const { userChoice, appChoice, score, setScore, startNewRound } =
     useContext(AppContext);
 
   useEffect(() => {
-    console.log("inUseEffect for animation");
     setTimeout(() => {
-      setAddFigureAnimation(false);
-      setTimeout(() => {
-        result !== "DRAW" && setScore(result === "WIN" ? score + 1 : score - 1);
-
-        setShowResult(true);
-      }, 2000);
+      console.log("inUseEffect for animation");
+      setAnimateFigure(!animateFigure);
     }, 3500);
-  }, [result]);
+  }, []);
 
   useEffect(() => {
-    console.log("inUseEffect, that should run once");
-    defineResult();
-  }, [userChoice]);
+    if (!animateFigure) {
+      setTimeout(() => {
+        const result = defineResult();
+        result !== Result.DRAW &&
+          setScore(result === Result.WIN ? score + 1 : score - 1);
+        setRoundResult(result);
+      }, 2000);
+    }
+  }, [animateFigure]);
 
   const defineResult = () => {
-    console.log("current score: ", score);
     var result: Result = Result.DRAW;
     console.log("appChoice: ", appChoice);
     console.log("userChoice: ", userChoice);
-
     if (appChoice !== userChoice) {
       result = winOptions[userChoice] === appChoice ? Result.WIN : Result.LOSE;
       console.log("result ", result);
     }
-    setResult(result);
+    return result;
   };
 
-  const resultComponent = (
+  const summaryComponent = (
     <div className={styles.resultContainer}>
       <p className="font-extra-spacing">
-        {result !== Result.DRAW && `YOU ${result}`}
+        {roundResult !== Result.DRAW && "YOU "} {roundResult}
       </p>
       <button
         className={`font-extra-spacing ${styles.playAgainButton}`}
@@ -73,18 +71,18 @@ export function DecisionsBoardComponent() {
         <FigureComponent
           type={userChoice}
           size="l"
-          addHighlight={result === Result.WIN}
+          addHighlight={roundResult === Result.WIN}
         />
       </div>
-      {!!showResult && resultComponent}
+      {!!roundResult && summaryComponent}
       <div className={styles.playerDecision}>
         <p className="font-extra-spacing">THE HOUSE PICKED</p>
         {!!appChoice && (
           <FigureComponent
             type={appChoice}
             size="l"
-            addHighlight={result === Result.LOSE}
-            addAnimation={addFigureAnimation}
+            addHighlight={roundResult === Result.LOSE}
+            addAnimation={animateFigure}
           />
         )}
       </div>
