@@ -20,9 +20,11 @@
 }
 .playAgainButton {
   width: 100%;
+  transition: all 0.5s ease-out;
 }
 .playAgainButton:hover {
   color: hsl(349, 71%, 52%);
+  box-shadow: hsl(217, 16%, 45%) 0px 0px 30px 5px;
 }
 .resultContainer {
   display: flex;

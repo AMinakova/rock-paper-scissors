@@ -12,12 +12,9 @@
   --color-paper: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
 }
 .circle-parent {
-  width: var(--circle-size-m);
-  height: var(--circle-size-m);
   position: relative;
   border-radius: 50%;
   border: 0px;
-  box-shadow: 0px -8px rgba(0, 0, 0, 0.25) inset;
 }
 
 .circle-child {
@@ -27,7 +24,6 @@
   background-position: center center;
   background-size: 45% auto;
   position: absolute;
-  padding: calc(var(--circle-size-m) * var(--circle-border-koef));
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -52,9 +48,24 @@
   box-shadow: 0 8px rgba(0, 0, 0, 0.15) inset;
 }
 
+.pop {
+  animation-name: pop;
+  animation-duration: 1s;
+}
+
+@keyframes pop {
+  0% {
+    padding: calc(var(--circle-size-m) * var(--circle-border-koef));
+    background-color: none;
+  }
+  100% {
+    padding: calc(var(--circle-size-l) * var(--circle-border-koef));
+    background-color: white;
+  }
+}
 .empty {
-  background-color: rgba(39, 39, 39, 0.178);
-  margin: 31.2px;
+  background-color: #2727272d;
+  box-shadow: none;
   animation-name: empty;
   animation-duration: 3s;
   animation-delay: 0.5s;
@@ -84,7 +95,6 @@
   animation-name: circles;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
 }
 
 @keyframes circles {

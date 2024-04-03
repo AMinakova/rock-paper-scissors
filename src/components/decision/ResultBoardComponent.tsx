@@ -25,7 +25,7 @@ export function ResultBoardComponent() {
     setTimeout(() => {
       console.log("inUseEffect for animation");
       setAnimateFigure(!animateFigure);
-    }, 3500);
+    }, 3000);
   }, []);
 
   useEffect(() => {
