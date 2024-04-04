@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import "./Figure.css";
+import "./Figure.scss";
 
 export const figures = ["rock", "scissors", "paper"];
 export type FigureType = (typeof figures)[number];
@@ -11,24 +10,17 @@ export function FigureComponent(props: {
   addHighlight?: boolean;
   addAnimation?: boolean;
 }) {
-  const animated = props.addAnimation;
   return (
     <div>
       {props.addAnimation ? (
-        <div className={`circle-parent ${props.size} empty`}></div>
+        <div className={`circle-empty`}></div>
       ) : (
         <div
-          className={`circle-parent ${props.type}-color ${props.size}`}
+          className={`circle-${props.size} ${props.type}-color`}
           id={props.addHighlight ? "highlight" : ""}
         >
-          {/* <div
-            className={`circle-child ${props.type} background ${props.size}${
-              animated && " pop"
-            }`}
-          /> */}
           <div
-            className={`circle-child ${props.type} background ${props.size} pop
-            `}
+            className={`overlay-${props.size} ${props.type} appear-${props.size}`}
           />
         </div>
       )}
