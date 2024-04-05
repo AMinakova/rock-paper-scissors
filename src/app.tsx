@@ -7,7 +7,6 @@ import { ResultBoardComponent } from "./components/decision/ResultBoardComponent
 import { StartBoardComponent } from "./components/gameBoard/StartBoardComponent";
 import Modal from "react-modal";
 import { RulesComponent } from "./components/rules/RulesComponent";
-import { LoadingComponent } from "./components/loading/LoadingComponent";
 
 Modal.setAppElement("#root");
 function App() {
