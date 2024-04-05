@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { ScoreBoardComponent } from "./components/scoreBoard/ScoreBoardComponent";
 import { AppContext } from "./AppContext";
@@ -7,14 +7,21 @@ import { ResultBoardComponent } from "./components/decision/ResultBoardComponent
 import { StartBoardComponent } from "./components/gameBoard/StartBoardComponent";
 import Modal from "react-modal";
 import { RulesComponent } from "./components/rules/RulesComponent";
+import { LoadingComponent } from "./components/loading/LoadingComponent";
 
 Modal.setAppElement("#root");
 function App() {
-  const [score, setScore] = useState<number>(12);
+  const [score, setScore] = useState<number>(0);
   const [userChoice, setUserChoice] = useState<FigureType>("");
   const [appChoice, setAppChoice] = useState<FigureType>("");
   const [modalIsOpen, setIsOpen] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
@@ -35,40 +42,47 @@ function App() {
         startNewRound,
       }}
     >
-      <div className="container">
-        <ScoreBoardComponent />
-        {userChoice ? <ResultBoardComponent /> : <StartBoardComponent />}
-        <button className="transparent font-extra-spacing" onClick={openModal}>
-          <p>RULES</p>
-        </button>
+      {isLoading ? (
+        <div className="loader"></div>
+      ) : (
+        <div className="container">
+          <ScoreBoardComponent />
+          {userChoice ? <ResultBoardComponent /> : <StartBoardComponent />}
+          <button
+            className="transparent font-extra-spacing"
+            onClick={openModal}
+          >
+            <p>RULES</p>
+          </button>
 
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={{
-            overlay: {
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "rgba(0, 0, 0, 0.35)",
-            },
-            content: {
-              position: "absolute",
-              display: "flex",
-              border: "1px solid #ccc",
-              background: "white",
-              overflow: "auto",
-              WebkitOverflowScrolling: "touch",
-              borderRadius: "10px",
-              outline: "none",
-              padding: "30px",
-              inset: "auto",
-            },
-          }}
-        >
-          <RulesComponent closeModal={closeModal}></RulesComponent>
-        </Modal>
-      </div>
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            style={{
+              overlay: {
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "rgba(0, 0, 0, 0.35)",
+              },
+              content: {
+                position: "absolute",
+                display: "flex",
+                border: "1px solid #ccc",
+                background: "white",
+                overflow: "auto",
+                WebkitOverflowScrolling: "touch",
+                borderRadius: "10px",
+                outline: "none",
+                padding: "30px",
+                inset: "auto",
+              },
+            }}
+          >
+            <RulesComponent closeModal={closeModal}></RulesComponent>
+          </Modal>
+        </div>
+      )}
     </AppContext.Provider>
   );
 }
