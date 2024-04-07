@@ -10,54 +10,6 @@ $l: 240px;
 $border-koef: 0.38;
 $pulse-shadow: hsl(217, 16%, 45%) 0px 0px 50px 0px;
 
-@mixin circle($size) {
-  position: relative;
-  border-radius: 50%;
-  border: 0px;
-  width: $size;
-  height: $size;
-  box-shadow: 0px -8px rgba(0, 0, 0, 0.25) inset;
-}
-
-.circle-m {
-  @include circle($m);
-}
-.circle-l {
-  @include circle($l);
-}
-.circle-empty {
-  @include circle($l);
-  background-color: #2727272d;
-  box-shadow: none;
-  animation-name: pulse;
-  animation-duration: 3s;
-  animation-delay: 0.5s;
-}
-
-@mixin overlay($size) {
-  border-radius: 50%;
-  background-color: white;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 45% auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 8px rgba(0, 0, 0, 0.15) inset;
-  padding: calc($size * $border-koef);
-}
-.overlay-m {
-  @include overlay($m);
-}
-.overlay-l {
-  @include overlay($l);
-}
-
-@mixin padding($size) {
-  padding: calc($size * $border-koef);
-}
-
 @mixin appear($name, $from, $to) {
   @keyframes #{$name} {
     0% {
@@ -73,6 +25,32 @@ $pulse-shadow: hsl(217, 16%, 45%) 0px 0px 50px 0px;
   animation-duration: 1s;
 }
 
+@mixin circle($size) {
+  position: relative;
+  border-radius: 50%;
+  border: 0px;
+  width: $size;
+  height: $size;
+  box-shadow: 0px -8px rgba(0, 0, 0, 0.25) inset;
+}
+
+@mixin overlay($size) {
+  border-radius: 50%;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 45% auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px rgba(0, 0, 0, 0.15) inset;
+  padding: calc($size * $border-koef);
+}
+
+@mixin padding($size) {
+  padding: calc($size * $border-koef);
+}
 .appear-l {
   @include appear("l", $m, $l);
 }
@@ -80,32 +58,49 @@ $pulse-shadow: hsl(217, 16%, 45%) 0px 0px 50px 0px;
 .appear-m {
   @include appear("m", $s, $m);
 }
-
-@keyframes pulse {
-  0% {
-    box-shadow: none;
-  }
-  20% {
-    box-shadow: $pulse-shadow;
-  }
-  40% {
-    box-shadow: none;
-  }
-  60% {
-    box-shadow: $pulse-shadow;
-  }
-  80% {
-    box-shadow: none;
-  }
-  100% {
-    box-shadow: $pulse-shadow;
-  }
+.circle-m {
+  @include circle($m);
 }
-
+.circle-l {
+  @include circle($l);
+}
+.circle-empty {
+  @include circle($l);
+  background-color: #2727272d;
+  box-shadow: none;
+  animation-name: pulse;
+  animation-duration: 1.5s;
+  animation-delay: 0.5s;
+}
 #highlight {
   animation-name: circles;
   animation-duration: 1s;
   animation-fill-mode: forwards;
+}
+
+.overlay-m {
+  @include overlay($m);
+}
+.overlay-l {
+  @include overlay($l);
+}
+.paper {
+  background-image: $icon-paper;
+}
+.paper-color {
+  background: $color-paper;
+}
+.rock {
+  background-image: $icon-rock;
+}
+.rock-color {
+  background: $color-rock;
+}
+.scissors {
+  background-image: $icon-scissors;
+}
+.scissors-color {
+  background: $color-scissors;
 }
 
 @keyframes circles {
@@ -129,21 +124,20 @@ $pulse-shadow: hsl(217, 16%, 45%) 0px 0px 50px 0px;
   }
 }
 
-.paper {
-  background-image: $icon-paper;
-}
-.paper-color {
-  background: $color-paper;
-}
-.rock {
-  background-image: $icon-rock;
-}
-.rock-color {
-  background: $color-rock;
-}
-.scissors {
-  background-image: $icon-scissors;
-}
-.scissors-color {
-  background: $color-scissors;
+@keyframes pulse {
+  0% {
+    box-shadow: none;
+  }
+  25% {
+    box-shadow: $pulse-shadow;
+  }
+  50% {
+    box-shadow: none;
+  }
+  75% {
+    box-shadow: $pulse-shadow;
+  }
+  100% {
+    box-shadow: none;
+  }
 }

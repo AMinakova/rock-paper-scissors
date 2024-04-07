@@ -3,7 +3,7 @@ import "./App.css";
 import { ScoreBoardComponent } from "./components/scoreBoard/ScoreBoardComponent";
 import { AppContext } from "./AppContext";
 import { FigureType } from "./components/figure/FigureComponent";
-import { ResultBoardComponent } from "./components/decision/ResultBoardComponent";
+import { ResultBoardComponent } from "./components/result/ResultBoardComponent";
 import { StartBoardComponent } from "./components/gameBoard/StartBoardComponent";
 import Modal from "react-modal";
 import { RulesComponent } from "./components/rules/RulesComponent";
@@ -47,10 +47,7 @@ function App() {
         <div className="container">
           <ScoreBoardComponent />
           {userChoice ? <ResultBoardComponent /> : <StartBoardComponent />}
-          <button
-            className="transparent font-extra-spacing"
-            onClick={openModal}
-          >
+          <button className="transparent" onClick={openModal}>
             <p>RULES</p>
           </button>
 

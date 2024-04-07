@@ -23,9 +23,8 @@ export function ResultBoardComponent() {
 
   useEffect(() => {
     setTimeout(() => {
-      console.log("inUseEffect for animation");
       setAnimateFigure(!animateFigure);
-    }, 3000);
+    }, 2000);
   }, []);
 
   useEffect(() => {
@@ -41,22 +40,19 @@ export function ResultBoardComponent() {
 
   const defineResult = () => {
     var result: Result = Result.DRAW;
-    console.log("appChoice: ", appChoice);
-    console.log("userChoice: ", userChoice);
     if (appChoice !== userChoice) {
       result = winOptions[userChoice] === appChoice ? Result.WIN : Result.LOSE;
-      console.log("result ", result);
     }
     return result;
   };
 
   const summaryComponent = (
     <div className={styles.resultContainer}>
-      <p className="font-extra-spacing">
+      <p>
         {roundResult !== Result.DRAW && "YOU "} {roundResult}
       </p>
       <button
-        className={`font-extra-spacing ${styles.playAgainButton}`}
+        className={styles.playAgainButton}
         onClick={() => startNewRound()}
       >
         PLAY AGAIN
@@ -67,7 +63,7 @@ export function ResultBoardComponent() {
   return (
     <div className={styles.decisionsBoard}>
       <div className={styles.playerDecision}>
-        <p className="font-extra-spacing">YOU PICKED</p>
+        <p>YOU PICKED</p>
         <FigureComponent
           type={userChoice}
           size="l"
@@ -76,7 +72,7 @@ export function ResultBoardComponent() {
       </div>
       {!!roundResult && summaryComponent}
       <div className={styles.playerDecision}>
-        <p className="font-extra-spacing">THE HOUSE PICKED</p>
+        <p>THE HOUSE PICKED</p>
         {!!appChoice && (
           <FigureComponent
             type={appChoice}

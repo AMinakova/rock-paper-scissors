@@ -20,7 +20,9 @@ export function FigureComponent(props: {
           id={props.addHighlight ? "highlight" : ""}
         >
           <div
-            className={`overlay-${props.size} ${props.type} appear-${props.size}`}
+            className={`overlay-${props.size} ${props.type} ${
+              props.size === "l" ? "appear-l" : ""
+            }`}
           />
         </div>
       )}
