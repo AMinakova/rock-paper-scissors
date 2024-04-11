@@ -46,5 +46,8 @@
   padding-right: 30px;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 800px) {
+  .transparent {
+    align-self: center;
+  }
 }

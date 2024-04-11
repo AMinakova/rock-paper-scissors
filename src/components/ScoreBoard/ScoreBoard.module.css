@@ -37,8 +37,8 @@
 }
 
 .count {
-  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   color: hsl(229, 25%, 31%);
   font-weight: 700;
-  line-height: clamp(2.2rem, 6vw, 4rem);
+  line-height: clamp(2.5rem, 6vw, 4rem);
 }
