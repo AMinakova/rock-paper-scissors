@@ -10,7 +10,7 @@ import { RulesComponent } from "./components/rules/RulesComponent";
 
 Modal.setAppElement("#root");
 function App() {
-  const [score, setScore] = useState<number>(0);
+  const [score, setScore] = useState<number>(12);
   const [userChoice, setUserChoice] = useState<FigureType>("");
   const [appChoice, setAppChoice] = useState<FigureType>("");
   const [modalIsOpen, setIsOpen] = useState(false);

@@ -105,19 +105,19 @@ $pulse-shadow: hsl(217, 16%, 45%) 0px 0px 50px 0px;
 
 @keyframes circles {
   0% {
-    box-shadow: 0 8px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 -8px rgba(0, 0, 0, 0.15) inset;
   }
   30% {
-    box-shadow: 0 8px rgba(0, 0, 0, 0.15) inset,
+    box-shadow: 0 -8px rgba(0, 0, 0, 0.15) inset,
       rgb(255, 255, 255, 0.03) 0px 0px 0px 50px;
   }
   60% {
-    box-shadow: 0 8px rgba(0, 0, 0, 0.15) inset,
+    box-shadow: 0 -8px rgba(0, 0, 0, 0.15) inset,
       rgb(255, 255, 255, 0.03) 0px 0px 0px 50px,
       rgb(255, 255, 255, 0.03) 0px 0px 0px 100px;
   }
   100% {
-    box-shadow: 0 8px rgba(0, 0, 0, 0.15) inset,
+    box-shadow: 0 -8px rgba(0, 0, 0, 0.15) inset,
       rgb(255, 255, 255, 0.03) 0px 0px 0px 50px,
       rgb(255, 255, 255, 0.03) 0px 0px 0px 100px,
       rgb(255, 255, 255, 0.03) 0px 0px 0px 150px;

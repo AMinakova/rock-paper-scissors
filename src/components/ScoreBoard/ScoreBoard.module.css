@@ -1,34 +1,44 @@
-#logo {
-  margin: 20px 0px 20px 20px;
+.label {
+  border-radius: 5px;
+  background-color: white;
+  width: clamp(17%, 20vw, 170px);
+  padding: 1rem 0rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }
-.scoreContainer {
+.label > :first-child {
+  color: hsl(229, 64%, 46%);
+  font-size: clamp(0.7rem, 2vw, 1rem);
+}
+#logoContainer {
+  max-width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border: 3px solid hsl(217, 16%, 45%);
-  border-radius: 10px;
-  width: 50vw;
+  border-radius: clamp(0.5rem, 2vw, 1rem);
+  width: clamp(5rem, 70vw, 50rem);
   margin-bottom: 50px;
+  padding: clamp(0.8rem, 4vw, 1.2rem);
 }
 
-.scoreLabel {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  background-color: white;
-  width: 120px;
-  margin: 15px 20px 15px 0px;
-  padding: 15px 10px 0px 10px;
-}
-
-.scoreLabel > :first-child {
-  color: hsl(229, 64%, 46%);
-}
 .count {
-  font-size: 4rem;
+  font-size: clamp(2.2rem, 6vw, 4rem);
   color: hsl(229, 25%, 31%);
   font-weight: 700;
-  margin-top: -20px;
+  line-height: clamp(2.2rem, 6vw, 4rem);
 }

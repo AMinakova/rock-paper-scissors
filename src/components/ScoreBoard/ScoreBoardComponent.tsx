@@ -6,9 +6,11 @@ import { AppContext } from "../../AppContext";
 export function ScoreBoardComponent() {
   const { score } = useContext(AppContext);
   return (
-    <div className={styles.scoreContainer}>
-      <img src={logo} alt="Logo" id={styles.logo} />
-      <div className={styles.scoreLabel}>
+    <div className={styles.container}>
+      <div id={styles.logoContainer}>
+        <img src={logo} alt="Logo" id={styles.logo} />
+      </div>
+      <div className={styles.label}>
         <div>SCORE</div>
         <div className={styles.count}>{score}</div>
       </div>
